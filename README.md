@@ -13,3 +13,7 @@ You can  type <code>help</code> in the console to have the different options ava
 
 <h2>To quit the console</h2>
 <code>quit</code>
+
+<h1>To Contributors</h1>
+The <code> ./g </code> command will automate the 3 git commands used to push to this repo. A message without the double quotes must be specified
+<code> ./g this is the commit message</code>
