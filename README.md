@@ -7,11 +7,9 @@ It is the first step of a serie of other programs built for the <em>AirBnB Clone
 With the console, you will be able to create your own model, manage (create, update, destroy, etc) objects via a console / command interpreter
 store and persist objects to a file (JSON file).
 
-<img src="https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/815046647d23428a14ca.png" alt="data model of the console">
-
-<h2>To start tge console</h2>
+<h2>To start the console</h2>
 from your terminal, type <code>./console.py</code>
-You ca  type <code>help</code> in the console to have the different options available
+You can  type <code>help</code> in the console to have the different options available
 
-<h2>How to quit the console</h2>
+<h2>To quit the console</h2>
 <code>quit</code>
