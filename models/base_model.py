@@ -4,6 +4,7 @@
 import uuid
 import datetime
 
+
 class BaseModel():
     """ the base model to create objects in our app"""
     id = ""
@@ -17,16 +18,27 @@ class BaseModel():
         self.updated_at = datetime.datetime.now().isoformat()
 
     def save(self):
-        """updates the public instance attribute updated_at with the current datetime"""
+        """
+        updates the public instance\
+        attribute updated_at with the current datetime
+        """
         self.updated_at = datetime.datetime.now().isoformat()
 
     def to_dict(self):
-        """returns a dictionary containing all keys/values of __dict__ of the instanc"""
+        """returns a dictionary\
+        containing all keys/values of __dict__ of the instanc"""
         dico = self.__dict__
         dico['__class__'] = self.__class__.__name__
         return(dico)
 
     def __str__(self):
-        """ Returns the official representation of the base model object"""
-        return("[{}] ({}) {}".format(self.__class__.__name__, self.__str__(), self.to_dict()))
-    
+        """
+        Returns the official\
+        representation of\
+        the base model object
+        """
+        return("[{}] ({}) {}".format
+               (
+                   self.__class__.__name__,
+                   self.__str__(),
+                   self.__dict__))
