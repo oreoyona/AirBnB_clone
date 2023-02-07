@@ -28,5 +28,5 @@ class BaseModel():
 
     def __str__(self):
         """ Returns the official representation of the base model object"""
-        return("[{}] ({}) {}".format(self.__class__.__name__, self.__str__(), self.to_dict()))
+        return("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
     
