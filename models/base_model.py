@@ -14,11 +14,26 @@ class BaseModel():
     created_at = None
     updated_at = None
 
-    def __init__(self):
-        """initiamizes the BaseModel class"""
+    def __init__(self, *args, **kwargs):
+        """initiamizes the BaseModel class
+        Args:
+            *args.
+            **kwargs(dict) key/value
+        representation of a class'attr
+        """
         self.id = str(uuid.uuid4())
         self.created_at = datetime.datetime.now().isoformat()
         self.updated_at = datetime.datetime.now().isoformat()
+        if kwargs is not None and len(kwargs) > 0:
+            for k, v in kwargs.items():
+                if k == "__class__":
+                    continue
+                elif k in ["created_at", "updated_at"]:
+                    setattr(self, k, datetime.fromisoformat(v))
+                else:
+                    setattr(self, k, v)
+            else:
+                pass
 
     def save(self):
         """
