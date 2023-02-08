@@ -4,7 +4,7 @@ This modules contains all the Tests
 it tests cases for the BaseModel class
 """
 
-
+import pycodestyle
 import unittest
 import inspect
 from models import base_model as bm
@@ -26,21 +26,21 @@ class TestCodeStyle(unittest.TestCase):
 
     def test_module_docstring(self):
         """Tests whether the module is documented"""
-        self.assertTrue(len(base_model.__doc__) >= 1)
+        self.assertTrue(len(bm.__doc__) >= 1)
 
     def test_class_docstring(self):
         """Tests whether the class is documented"""
-        self.assertTrue(len(BaseModel.__doc__) >= 1)
+        self.assertTrue(len(bm.BaseModel.__doc__) >= 1)
 
     def test_methods_docstring(self):
         """Tests whether the class methods are documented"""
-        funcs = inspect.getmembers(BaseModel, inspect.isfunction)
+        funcs = inspect.getmembers(bm.BaseModel, inspect.isfunction)
         for func in funcs:
             self.assertTrue(len(func[1].__doc__) >= 1)
 
     def test_class_name(self):
         """Test whether the class name is correct"""
-        self.assertEqual(BaseModel.__name__, "BaseModel")
+        self.assertEqual(bm.BaseModel.__name__, "BaseModel")
 
 
 class BaseModelTest(unittest.TestCase):
@@ -49,11 +49,11 @@ class BaseModelTest(unittest.TestCase):
 
     def test_isDaughter(self):
         """Tests wether a given class is an instance ofthe BaseModel class"""
-        print(self.gloire.__str__())
         self.assertIsInstance(
             self.gloire,
             bm.BaseModel,
             "Is not an instance of the BaseModel class")
-            
+
+
 if __name__ == "__main__":
     unittest.main()
