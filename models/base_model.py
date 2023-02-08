@@ -1,8 +1,11 @@
 #!/usr/bin/python3
-""" Defines the base class model"""
+"""
+This modules Defines the base class model
+"""
 
 import uuid
 import datetime
+import models
 
 
 class BaseModel():
