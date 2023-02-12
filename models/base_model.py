@@ -14,7 +14,7 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """initiamizes the BaseModel class
         Args:
-            *args.
+            *args(any) Unused member
             **kwargs(dict) key/value
         representation of a class'attr
         """
@@ -46,12 +46,6 @@ class BaseModel:
         return tmp
 
     def __str__(self):
-        """
-        Returns the official\
-        representation of\
-        the base model object
-        """
-        return("[{}] ({}) {}".format(
-                   self.__class__.__name__,
-                   self.id,
-                   self.__dict__))
+        """Stringifies the base model object"""
+        name = self.__class__.__name__
+        return "[{}] ({}) {}".format(name, self.id, self.__dict__)
