@@ -10,9 +10,6 @@ import models
 
 class BaseModel():
     """ the base model to create objects in our app"""
-    id = ""
-    created_at = None
-    updated_at = None
 
     def __init__(self, *args, **kwargs):
         """initiamizes the BaseModel class
@@ -24,6 +21,7 @@ class BaseModel():
         self.id = str(uuid.uuid4())
         self.created_at = datetime.datetime.now()
         self.updated_at = datetime.datetime.now()
+
         if kwargs is not None and len(kwargs) > 0:
             for k, v in kwargs.items():
                 if k == "__class__":
