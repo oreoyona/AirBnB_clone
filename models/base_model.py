@@ -56,5 +56,5 @@ class BaseModel():
         """
         return("[{}] ({}) {}".format(
                    self.__class__.__name__,
-                   self.__str__(),
+                   self.id,
                    self.__dict__))
