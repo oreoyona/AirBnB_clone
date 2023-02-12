@@ -8,7 +8,7 @@ from datetime import datetime
 import models
 
 
-class BaseModel():
+class BaseModel:
     """ the base model to create objects in our app"""
 
     def __init__(self, *args, **kwargs):
