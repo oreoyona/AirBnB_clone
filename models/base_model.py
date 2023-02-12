@@ -3,7 +3,7 @@
 This modules Defines the base class model
 """
 
-import uuid
+from uuid import uuid4
 from datetime import datetime
 import models
 
