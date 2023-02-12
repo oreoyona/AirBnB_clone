@@ -54,9 +54,7 @@ class BaseModel():
         representation of\
         the base model object
         """
-        return("[{}] ({}) {}".format
-               (
+        return("[{}] ({}) {}".format(
                    self.__class__.__name__,
                    self.__str__(),
                    self.__dict__))
-
