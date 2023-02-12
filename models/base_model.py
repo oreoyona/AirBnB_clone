@@ -1,22 +1,22 @@
 #!/usr/bin/python3
 """
-This modules Defines the base class model
+This modules Defines the base class model.
 """
 
+import models
 from uuid import uuid4
 from datetime import datetime
-import models
 
 
 class BaseModel:
-    """ the base model to create objects in our app"""
+    """the base model to create objects in our app."""
 
     def __init__(self, *args, **kwargs):
-        """initiamizes the BaseModel class
+        """initializes the BaseModel class.
+
         Args:
-            *args(any) Unused member
-            **kwargs(dict) key/value
-        representation of a class'attr
+            *args(any) Unused member.
+            **kwargs(dict) key/value pairs of the object.
         """
         d_format = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
@@ -37,8 +37,7 @@ class BaseModel:
         models.storage.save()
 
     def to_dict(self):
-        """returns a dictionary\
-        containing all keys/values of __dict__ of the instanc"""
+        """Objectifies the class"""
         tmp = self.__dict__.copy()
         tmp["created_at"] = self.created_at.isoformat()
         tmp["updated_at"] = self.updated_at.isoformat()
