@@ -35,7 +35,7 @@ class FileStorage:
                 self.__objects = {k: self.get_class(k.split(".")[0])(**v)
                                   for k, v in json.load(f).items()}
 
-                def get_class(self, name):
+    def get_class(self, name):
         """A class getter from models packagee"""
         sub_module = re.sub('(?!^)([A-Z]+)', r'_\1', name).lower()
         module = importlib.import_module(f"models.{sub_module}")
