@@ -19,7 +19,7 @@ class FileStorage:
 
     def all(self):
         """Gets all the objects"""
-        return self.__objects
+        return FileStorage.__objects
 
     def new(self, obj):
         """Creates an object with a new ID"""
@@ -32,14 +32,12 @@ class FileStorage:
 
     def reload(self):
         """Reloads the JSON file"""
-        if (os.path.isfile(self.__file_path)
-                and os.path.getsize(self.__file_path) > 0):
-            with open(self.__file_path, 'r') as f:
-                self.__objects = {k: self.get_class(k.split(".")[0])(**v)
-                                  for k, v in json.load(f).items()}
-
-    def get_class(self, name):
-        """Gets a class from models module using its name"""
-        sub_module = re.sub('(?!^)([A-Z]+)', r'_\1', name).lower()
-        module = importlib.import_module(f"models.{sub_module}")
-        return getattr(module, name)
+        try:
+            with open(FileStorage.__file_path) as f:
+                objdict = json.load(f)
+                for o in objdict.values():
+                    cls_name = o["__class__"]
+                    del o["__class__"]
+                    self.new(eval(cls_name)(**o))
+        except FileNotFoundError:
+            return
