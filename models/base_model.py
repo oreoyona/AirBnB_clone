@@ -59,3 +59,4 @@ class BaseModel():
                    self.__class__.__name__,
                    self.__str__(),
                    self.__dict__))
+
